@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log in</title>
+        <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
+        <script type="text/javascript">
+       function openContent(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+            
+
+
+        </script>
+<script>
+function ValidateForm()
+{
+
+var pword = document.forms["input"]["password"].value;
+var cpword = document.forms["input"]["cpassword"].value;
+if(cpword!=pword)
+{
+alert("confirm password did not match with original password!!");
+return false;
+}
+
+
+}
+</script>
+
+
+    </head>
+    <body>
+    <br>
+        <div class="tab" id="header">
+            <button class="tablinks" onclick="openContent(event, 'login')"><b>Log in</b></button>
+            <button class="tablinks" onclick="openContent(event, 'signup')"><b>Sign up</b></button>
+        </div>
+
+        <div id="wrapper">
+        <div id="default">
+            <h1 style="color:blue;">Welcome to <b><i>FoodieSwift</i></b></h1>
+        </div>
+
+            <div id="login" class="tabcontent">
+                <div id="inputs">
+                     <form name="input1" action="login.php" method="post">
+                        <input type="email" name="email_id" id="email" placeholder="Email"><br/>
+                        <input type="Password" name="password" id="password" placeholder="Password"><br/>
+			<!--<input type = "submit" value="Login">-->
+<div id="logging">
+                  
+                        <br><button class="button button2" type="submit">Log in</button><br>
+                 
+                </div>
+                    </form>
+                </div>
+
+            </div>
+
+
+            <div id="signup" class="tabcontent">
+                <div id="inputs">    
+                    <form name="input" action="signup.php" method="post" onsubmit="return ValidateForm()">
+                        <input type="text" name="cust_name" id="fname" placeholder="Name" pattern="[a-z A-Z]+" required><br/>
+                        <input type="tel" name="phone" id="phone" placeholder="Phone number.." pattern="[0-9]+" required><br/>
+                        <input type="email" name="email_id" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br/>
+                        <input type="password" name="password" id="password" placeholder="Password" pattern="\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W])\S*$" required>
+<div id="e3">NOTE:The password must be minimum of 8 characters,must contain atleast one number,
+	uppercase character,lowercase character and special character</div>
+	
+	 <br> 
+                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm password" required>
+                        <input type="text" name="land_mark" id="landmark" placeholder="Landmark" required><br/>
+                        <input type="text" name="city" id="city" placeholder="City" pattern="[a-z A-Z]+" required><br/>
+                        <input type="text" name="pincode" id="pincode" placeholder="Pincode" pattern="[0-9]+" required><br/>
+                        <br/>
+ <div id="logging">
+                    <form>
+                        <button class="button button1" type="submit" >Sign up</button>
+                    </form>
+                </div> 
+                    </form>
+                </div> 
+
+            </div>
+      
+        </div>
+    </body>
+</html>
